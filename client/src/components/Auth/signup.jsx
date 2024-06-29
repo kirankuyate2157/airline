@@ -15,12 +15,10 @@ const Signup = ({ setType }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
-
 
   const validate = () => {
     const newErrors = {};
@@ -34,7 +32,6 @@ const Signup = ({ setType }) => {
     return newErrors;
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -45,16 +42,14 @@ const Signup = ({ setType }) => {
       }
       return;
     }
-  
 
     try {
-      const res = await axios.post("/signup", data);
+      const res = await axios.post("/users/register", data);
     } catch (error) {
       toast.error(error.message);
     }
   };
 
-  
   return (
     <div className='h-full flex flex-col gap-3'>
       <div className='flex justify-end py-1'>

@@ -23,7 +23,7 @@ function Login({ setType }) {
       return;
     }
     try {
-      const res = await axios.post("/signin", data);
+      const res = await axios.post("/users/login", data);
     } catch (error) {
       toast.error(error.message);
     }

@@ -2,6 +2,10 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
+
+import userRouter from "./routes/user.routes.js"
+
+
 const app = express();
 
 app.use(
@@ -16,7 +20,10 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" })); //url data under
 app.use(express.static("public")); //store file direct on server for public access
 app.use(cookieParser()); //cookie  set get operations
 
-pp.get("/", (req, res) => {
+
+app.use("/api/v1/users", userRouter);
+
+app.get("/", (req, res) => {
     res.send("hey i back end api started now testing .... 🍻⏳");
   });
   
