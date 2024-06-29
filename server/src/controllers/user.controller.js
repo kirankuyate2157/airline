@@ -29,10 +29,10 @@ const registration = asyncHandler(async (req, res) => {
   function generateAirUsername(fullName) {
 
     const randomNumber = Math.floor(Math.random() * 100); // Generates a random number between 0 and 9999
-    const username = `${firstName?.trim()}${randomNumber}`;
+    const username = `${fullName?.trim()}${randomNumber}`;
     return username;
   }
-  const genAirUsername = generateAirUsername(fullName);
+  const genAirUsername = generateAirUsername(firstName);
   console.log({
     email: email,
     username: username ? username : genAirUsername,

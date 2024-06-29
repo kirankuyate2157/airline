@@ -44,6 +44,7 @@ const Signup = ({ setType }) => {
     }
 
     try {
+      console.log("user : ",data)
       const res = await axios.post("/users/register", data);
     } catch (error) {
       toast.error(error.message);
