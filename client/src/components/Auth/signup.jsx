@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = ({ setType }) => {
   const [data, setData] = useState({
@@ -15,6 +16,7 @@ const Signup = ({ setType }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const nav=useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
@@ -46,6 +48,10 @@ const Signup = ({ setType }) => {
     try {
       console.log("user : ",data)
       const res = await axios.post("/users/register", data);
+      if(res){
+        toast.success("User registered successfully");
+        nav("/home")
+      }
     } catch (error) {
       toast.error(error.message);
     }

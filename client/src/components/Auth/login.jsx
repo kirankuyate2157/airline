@@ -10,7 +10,7 @@ function Login({ setType }) {
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-
+  const nav = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
@@ -18,12 +18,17 @@ function Login({ setType }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (Object.keys(data).length > 0) {
+    console.log(data);
+    if (Object.keys(data).length <= 0) {
       toast.error("please enter a valid credentials!");
       return;
     }
     try {
       const res = await axios.post("/users/login", data);
+      if (res) {
+        toast.success("User login successfully");
+        nav("/home");
+      }
     } catch (error) {
       toast.error(error.message);
     }

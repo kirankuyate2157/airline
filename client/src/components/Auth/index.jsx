@@ -7,7 +7,7 @@ const Auth = () => {
   
   return (
     <div className='w-[100vw] flex justify-center'>
-      <div className='w-full max-w-[1300px]  p-2 font-sans sm:p-6 lg:p-20 h-[100vh] flex flex-col justify-center '>
+      <div className='w-full max-w-[1400px]  p-2 font-sans sm:p-6 lg:p-20 h-[100vh] flex flex-col justify-center '>
         <div className='w-full md:hidden text-blue-700 text-4xl font-serif font-bold p-3 flex justify-center text-center'>
           <h2 className='flex gap-3 '>
             Altitude Air <FaPlaneDeparture className='animate-pulse' />
